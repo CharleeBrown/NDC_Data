@@ -21,3 +21,8 @@ function findNDC(){
     // The reason for the error is because the file is being run locally. (LocalHost).
     // Run it from a server and the problem should be fixed.  
 }
+
+function ClearAll(){
+    NDC.value = "";
+    NDC.focus();
+}
