@@ -7,7 +7,7 @@ var Label_product_ndc = "openfda.product_ndc.exact:"; // addon for product NDC l
 
 function findNDC(){
   
-   fetch(mainURL+ Label_product_ndc+"\""+NDC.value+"\"")
+   fetch("'"+mainURL+ Label_product_ndc+"\""+NDC.value+"\""+"'")
    // fetch(workingURL)
     .then((response) =>{
         return response.json();
@@ -18,5 +18,6 @@ function findNDC(){
         console.log(mainURL+Label_package_ndc+"\""+NDC.value+"\"");
     });
 
-    // I receive an error is i run as is. Ran from the FDA website and no error. 
+    // The reason for the error is because the file is being run locally. (LocalHost).
+    // Run it from a server and the problem should be fixed.  
 }
