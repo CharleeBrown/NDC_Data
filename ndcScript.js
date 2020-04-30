@@ -8,9 +8,7 @@ var Label_package_ndc = "openfda.package_ndc:"; // This is the addon to the URL 
 var Label_product_ndc = "openfda.product_ndc.exact:"; // addon for product NDC lookup. 
 
 function findNDC(){
-  
    fetch(mainURL+ Label_package_ndc+"\""+NDC.value+"\"")
-   
     .then((response) =>{
         return response.json();
     })
@@ -19,9 +17,7 @@ function findNDC(){
         productName.value = data.results[i].openfda.brand_name.toString();
         productManu.value = data.results[i].openfda.manufacturer_name.toString();
        console.log(data.results)
-    });
-
-    
+    });   
 }
 
 function ClearAll(){
