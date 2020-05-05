@@ -1,18 +1,21 @@
-#mainBody{
-    margin:auto;
-    text-align:center;
+#mainBody {
+    margin: auto;
+    text-align: center;
     border: black solid 1px;
 }
-#mainHead{
+
+#mainHead {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4em;
     border: black solid 1px;
-    margin:10px;
+    margin: 10px;
     text-align: center;
 }
-#NDC{
-margin:10px;
+
+#NDC {
+    margin: 10px;
 }
-#ndcRow{
-    margin: 20px; 
+
+#ndcRow {
+    margin: 20px;
 }
