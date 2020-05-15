@@ -11,6 +11,7 @@ var Label_product_ndc = "openfda.product_ndc.exact:"; // addon for product NDC l
 var ndc1 = document.getElementById("ndc1");
 var ndc2 = document.getElementById("ndc2");
 
+productName.maxlength = 12;
 function findNDC() {
     fetch(mainURL + Label_package_ndc + "\"" + NDC.value + "\"")
         .then((response) => {
@@ -22,10 +23,15 @@ function findNDC() {
             showData(data)
         });
 }
-
+// The entire NDC isn't needed for some reason. TODO : Look up specifications of what's necessary to find NDC data. 
 function showData(data) {
 
     for (var i = 0; i < data.results.length; i++) {
+        if(data.results === undefined){
+            productName.value = " Enter correct NDC format";
+            NDC.setSelectionRange(0, NDC.length);
+            NDC.focus();
+        }
         // Loops through the json to fill in the fields. 
         console.log(data.results[i])
         productName.value = data.results[i].openfda.brand_name.toString()
