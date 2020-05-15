@@ -6,12 +6,13 @@ var productManu = document.getElementById("prodManu");
 var mainURL = "https://api.fda.gov/drug/label.json?search="; // The base URL.
 var ndcURL = " https://api.fda.gov/drug/ndc.json?search="; // The base URL for NDC searach
 
+
 var Label_package_ndc = "openfda.package_ndc:"; // This is the addon to the URL if the lookup is for an NDC.
 var Label_product_ndc = "openfda.product_ndc.exact:"; // addon for product NDC lookup. 
 var ndc1 = document.getElementById("ndc1");
 var ndc2 = document.getElementById("ndc2");
 
-productName.maxlength = 12;
+
 function findNDC() {
     fetch(mainURL + Label_package_ndc + "\"" + NDC.value + "\"")
         .then((response) => {
@@ -23,19 +24,23 @@ function findNDC() {
             showData(data)
         });
 }
+
+
 // The entire NDC isn't needed for some reason. TODO : Look up specifications of what's necessary to find NDC data. 
 function showData(data) {
 
-    for (var i = 0; i < data.results.length; i++) {
+    for (var i = 0; i < data.results.length; i++) {  // Loops through the json to fill in the fields.
         if(data.results === undefined){
             productName.value = " Enter correct NDC format";
             NDC.setSelectionRange(0, NDC.length);
             NDC.focus();
         }
-        // Loops through the json to fill in the fields. 
+        
+         
         console.log(data.results[i])
         productName.value = data.results[i].openfda.brand_name.toString()
         productManu.value = data.results[i].openfda.manufacturer_name.toString()
+
         // If the first package NDC field is empty, there won't be a second NDC. 
         if (data.results[0].openfda.package_ndc[0] == null) {
             ndc1.value = "";
@@ -46,6 +51,7 @@ function showData(data) {
         else if (data.results[0].openfda.package_ndc[0] != null & data.results[0].openfda.package_ndc[1] == null) {
             ndc1.value = data.results[0].openfda.package_ndc[0].toString();
             ndc2.value = "";
+
         } else {
             // If both are present. Fill in both. 
             ndc1.value = data.results[0].openfda.package_ndc[0].toString();
@@ -61,5 +67,6 @@ function ClearAll() {
     productManu.value = "";
     ndc1.value = "";
     ndc2.value = "";
-    NDC.focus();
+    NDC.setSelectionRange(0, NDC.value.length);
+   
 }
