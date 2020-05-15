@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="ndcStyle.css" />
+    <title>
+        Product Data Search
+    </title>
+</HEAD>
+
+<body onload="ClearAll()">
+    <div class="container">
+        <div class="jumbobtron" id="mainHead">
+            NDC Search
+        </div>
+    </div>
+    <div class="container" id="mainBody">
+        <div class="row">
+            <div class="col">
+                <label>Enter NDC/Barcode Number<input type="text" id="NDC" /> </label>
+                <input type="submit" value="Submit" onclick="findNDC()" />
+            </div>
+        </div>
+
+        </br>
+        <div class="row">
+            <div class="col">
+                <label> Product Name: <input type="text" id="prodName" /></label>
+            </div>
+            <div class="col">
+                <label> Product Manufacturer: <input type="text" id="prodManu" /></label>
+            </div>
+
+        </div>
+        <div class="row" id="ndcRow">
+            <div class="col">
+                <h3>Possible Full NDCs</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label> NDC : <input type="text" id="ndc1" /> </label>
+                <label> NDC : <input type="text" id="ndc2" /> </label>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="ndcScript.js"></script>
+
+</HTML>
