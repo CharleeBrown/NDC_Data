@@ -10,6 +10,7 @@
     border: black solid 1px;
     margin: 10px;
     text-align: center;
+    background-image:linear-gradient(to right, lightgray, rgb(144, 216, 240), rgb(161, 161, 253));
 }
 
 #NDC {
@@ -19,3 +20,4 @@
 #ndcRow {
     margin: 20px;
 }
+
